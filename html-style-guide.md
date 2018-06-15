@@ -393,8 +393,7 @@ background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizin
 ### 2.2 命名
 
 
-
-#### [强制] `class` 必须单词全字母小写，单词间以 `-` 分隔。
+#### [强制] `class` 必须单词全字母小写，单词间以 `_`(下划线) 分隔。
 
 #### [强制] `class` 必须代表相应模块或部件的内容或功能，不得以样式信息进行命名。
 
@@ -415,7 +414,7 @@ background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizin
 同一个页面中，不同的元素包含相同的 id，不符合 id 的属性含义。并且使用 document.getElementById 时可能导致难以追查的问题。
 
 
-#### [建议] `id` 建议单词全字母小写，单词间以 `-` 分隔。同项目必须保持风格一致。
+#### [建议] `id` 建议单词全字母小写，单词间以 `_`(下划线) 分隔。同项目必须保持风格一致。
 
 
 #### [建议] `id`、`class` 命名，在避免冲突并描述清楚的前提下尽可能短。
@@ -483,7 +482,7 @@ alert(document.getElementById('foo').tagName);
 <P>Hello StyleGuide!</P>
 ```
 
-#### [强制] 对于无需自闭合的标签，不允许自闭合。
+#### [强制] 对于无需自闭合的标签，不允许自闭合。`(待沟通)`
 
 解释：
 
@@ -558,10 +557,18 @@ alert(document.getElementById('foo').tagName);
 
 ```html
 <!-- good -->
-<p>Esprima serves as an important <strong>building block</strong> for some JavaScript language tools.</p>
+<p>
+    Esprima serves as an important
+    <strong>building block</strong>
+    for some JavaScript language tools.
+</p>
 
 <!-- bad -->
-<div>Esprima serves as an important <span class="strong">building block</span> for some JavaScript language tools.</div>
+<div>
+    Esprima serves as an important
+    <span class="strong">building block</span>
+    for some JavaScript language tools.
+</div>
 ```
 
 
