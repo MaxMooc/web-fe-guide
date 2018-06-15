@@ -6,12 +6,13 @@
 
 [1 前言](#1-%E5%89%8D%E8%A8%80)
 
+　　[1.1 命名规范说明](#11-命名规范说明)
 
-    [1.1 命名规范说明](#11-%E5%89%8D%E8%A8%80)
-    [1.2 命名规则](#12-%E5%89%8D%E8%A8%80)
-    [1.3 class的命名](#13-%E5%89%8D%E8%A8%80)
-    [1.4 注释的写法](#14-%E5%89%8D%E8%A8%80)
+　　[1.2 命名规则](#12-命名规则)
 
+　　[1.3 class的命名](#13-class的命名)
+
+　　[1.4 注释的写法](#14-注释的写法)
 
 [2 代码风格](#2-%E4%BB%A3%E7%A0%81%E9%A3%8E%E6%A0%BC)
 
@@ -69,31 +70,36 @@ HTML作为描述网页结构的超文本标记语言，在百度一直有着广�
 
 
 
-```
-一、规范目的
 
-1.1  概述
+#### 一、规范目的
+
+
+概述
 
 为提高团队协作效率, 便于后台人员添加功能及前端后期优化维护, 输出高质量的文档, 特制订此文档. 本规范文档一经确认, 前端开发人员必须按本文档规范进行前台页面开发. 本文档如有不对或者不合适的地方请及时提出, 经讨论决定后可以更改此文档.
 
-二、文件规范
 
-2.1  文件命名规则
+#### 二、文件规范
+
+##### 2.1  文件命名规则
 
 文件名称统一用小写的英文字母、数字和下划线的组合，其中不得包含汉字、空格和特殊字符；命名原则的指导思想一是使得你自己和工作组的每一个成员能够方便的理解每一个文件的意义，二是当我们在文件夹中使用“按名称排例”的命令时，同一种大类的文件能够排列在一起，以便我们查找、修改、替换、计算负载量等等操作。
 
-a.  HTML的命名原则
-引文件统一使用index.htm  index.html  index.asp文件名（小写）
-各子页命名的原则首先应该以栏目名的英语翻译取单一单词为名称。例如：
-关于我们 \ aboutus
-信息反馈 \ feedback
-产 品 \ product
+###### a.  HTML的命名原则
+```
+引文件统一使用index.html
+
+各子页命名的原则首先应该以栏目名的英语翻译取单一单词为名称。
+例如：
+    关于我们 \ aboutus
+    信息反馈 \ feedback
+    产 品 \ product
 
 如果栏目名称多而复杂并不好以英文单词命名，则统一使用该栏目名称拼音或拼音的首字母表示；
-每一个目录中应该包含一个缺省的html 文件，文件名统一用index.htm  index.html  index.asp；
-
-b.  图片的命名原则
-
+每一个目录中应该包含一个缺省的html 文件，文件名统一用index.html；
+```
+###### b.  图片的命名原则
+```
 图片的名称分为头尾两部分，用下划线隔开，头部分表示此图片的大类性质
 例如：广告、标志、菜单、按钮等等。
 放置在页面顶部的广告、装饰图案等长方形的图片取名： banner
@@ -102,19 +108,26 @@ b.  图片的命名原则
 在页面上某一个位置连续出现，性质相同的链接栏目的图片我们取名： menu
 装饰用的照片我们取名： pic
 不带链接表示标题的图片我们取名： title
-范例：banner_sohu.gif  banner_sina.gif  menu_aboutus.gif  menu_job.gif  title_news.gif  logo_police.gif   logo_national.gif   pic_people.jpg
+
+范例：
+    banner_sohu.gif  banner_sina.gif  
+    menu_aboutus.gif  menu_job.gif  
+    title_news.gif  logo_police.gif   
+    logo_national.gif   pic_people.jpg
+
 鼠标感应效果图片命名规范为”图片名+_+on/off”。
 例如：menu1_on.gif  menu1_off.gif
+```
+###### c.  javascript的命名原则
+```
+例如：
+    广告条的javascript文件名为 ad.js  
+    弹出窗口的javascript文件名为 pop.js
+```
 
-c.  javascript的命名原则
-例如：广告条的javascript文件名为 ad.js  弹出窗口的javascript文件名为 pop.js
 
-d.  动态语言文件命名原则
-以性质_描述，描述可以有多个单词，用“_”隔开，性质一般是该页面得概要。
-范例：register_form.asp   register_post.asp   topic_lock.asp
-
-2.2  文件存放位置规范
-
+##### 2.2  文件存放位置规范
+```
 _Root       
 cn  存放中文HTML文件
 en  存放英文HTML文件
@@ -129,9 +142,11 @@ project 存放工程项目资料
 temp    存放客户原始资料
 js  存放JavaScript脚本
 css 存放CSS文件
-2.3  CSS 书写规范
-基本原则：
+```
 
+##### 2.3  CSS 书写规范
+###### 基本原则：
+```
 CSS样式可细分为3类：自定义样式、重新定义HTML样式、链接状态样式。
 
 1. 样式为设计师自定义的新 CSS 样式，影响被使用本样式的区域，用于完成网页中局部的样式设定。样式名 “.”+“相应样式效果描述的单词或缩写”例：“ .shadow ”
@@ -143,35 +158,67 @@ CSS样式可细分为3类：自定义样式、重新定义HTML样式、链接状
 该样式写法有2种： a.nav:link    nav.a:link  第一种只能修饰<a>标签中；第二种可以修饰所有包含有<a>标签的其他标签。
 
 页面内的样式加载必须用链接方式<link rel=”stylesheet” type=”text/css” href=”style/style.css”>
+```
 
-注意细则：
-
+###### 注意细则：
+```
 1. 协作开发及分工: i会根据各个模块, 同时根据页面相似程序, 事先写好大体框架文件, 分配给前端人员实现内部结构&表现&行为; 共用css文件base.css由i书写, 协作开发过程中, 每个页面请务必都要引入, 此文件包含reset及头部底部样式, 此文件不可随意修改;
 
 2. class与id的使用: id是唯一的并是父级的, class是可以重复的并是子级的, 所以id仅使用在大的模块上, class可用在重复使用率高及子级中; id原则上都是由我分发框架文件时命名的, 为JavaScript预留钩子的除外;
 
 3. 为JavaScript预留钩子的命名, 请以 js_ 起始, 比如: js_hide, js_show;
 
-4. class与id命名: 大的框架命名比如header/footer/wrapper/left/right之类的在2中由i统一命名.其他样式名称由 小写英文 & 数字 & _ 来组合命名, 如i_comment, fontred, width200; 避免使用中文拼音, 尽量使用简易的单词组合; 总之, 命名要语义化, 简明化.
+4. class与id命名:
+大的框架命名比如header/footer/wrapper/left/right之类的在2中由i统一命名.其他样式名称由 小写英文 & 数字 & _ 来组合命名, 如i_comment, fontred, width200; 避免使用中文拼音, 尽量使用简易的单词组合; 总之, 命名要语义化, 简明化.
 
 5. 规避class与id命名(此条重要, 若有不明白请及时与i沟通):
 
-a, 通过从属写法规避, 示例见d;
+    a, 通过从属写法规避, 示例见d;
 
-b, 取父级元素id/class命名部分命名, 示例见d;
+    b, 取父级元素id/class命名部分命名, 示例见d;
 
-c, 重复使用率高的命名, 请以自己代号加下划线起始, 比如i_clear;
+    c, 重复使用率高的命名, 请以自己代号加下划线起始, 比如i_clear;
 
-d, a,b两条, 适用于在2中已建好框架的页面, 如, 要在2中已建好框架的页面代码<div id=”mainnav”></div>中加入新的div元素,
+    d, a,b两条, 适用于在2中已建好框架的页面,
+       如, 要在2中已建好框架的页面代码
+       <div id=”mainnav”></div>中加入新的div元素,
 
-按a命名法则: <div id=”mainnav”><div class=”firstnav”>…</div></div>,
+    按a命名法则:
+        <div id=”mainnav”>
+            <div class=”firstnav”>…</div>
+        </div>,
 
-样式写法:  #mainnav  .firstnav{…….}
+    样式写法:  #mainnav  .firstnav{…….}
 
-按b命名法则: <div id=”mainnav”><div class=”main_firstnav”>…</div></div>,
-样式写法:  .main_firstnav{…….}
+    按b命名法则:
+        <div id=”mainnav”>
+            <div class=”main_firstnav”>…</div>
+        </div>,
 
-6. css属性书写顺序, 建议遵循 布局定位属性–>自身属性–>文本属性–>其他属性. 此条可根据自身习惯书写, 但尽量保证同类属性写在一起. 属性列举: 布局定位属性主要包括: margin、padding、float（包括clear）、position（相应的 top,right,bottom,left）、display、visibility、overflow等；自身属性主要包括: width & height & background & border; 文本属性主要包括：font、color、text-align、text-decoration、text-indent等；其他属性包括: list-style(列表样式)、vertical-vlign、cursor、z-index(层叠顺序) 、zoom等.我所列出的这些属性只是最常用到的, 并不代表全部;
+    样式写法:  .main_firstnav{…….}
+
+6. css属性书写顺序, 建议遵循
+布局定位属性–>自身属性–>文本属性–>其他属性.
+此条可根据自身习惯书写, 但尽量保证同类属性写在一起.
+
+属性列举:
+
+布局定位属性主要包括:
+    margin、padding、float（包括clear）、
+    position（相应的 top,right,bottom,left）、
+    display、visibility、overflow等；
+
+自身属性主要包括:
+    width & height & background & border;
+
+文本属性主要包括：
+    font、color、text-align、text-decoration、text-indent等；
+
+其他属性包括:
+    list-style(列表样式)、vertical-vlign、
+    cursor、z-index(层叠顺序) 、zoom等.
+
+我所列出的这些属性只是最常用到的, 并不代表全部;
 
 7. 书写代码前, 考虑并提高样式重复使用率;
 
@@ -202,7 +249,6 @@ background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizin
 16. 必须为大区块样式添加注释, 小区块适量注释;
 
 17. 代码缩进与格式: 建议单行书写, 可根据自身习惯, 后期优化i会统一处理;
-
 
 ```
 
