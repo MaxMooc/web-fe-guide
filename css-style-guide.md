@@ -407,7 +407,7 @@ article {
 ### 3.3 属性书写顺序
 
 
->**[建议] 同一 rule set 下的属性在书写时，应按功能进行分组，并以**Formatting Model（布局方式、位置） > Box Model（尺寸） > Typographic（文本相关） > Visual（视觉效果）** 的顺序书写，以提高代码的可读性。**
+>**[建议] 同一 rule set 下的属性在书写时，应按功能进行分组，并以 Formatting Model（布局方式、位置） > Box Model（尺寸） > Typographic（文本相关） > Visual（视觉效果） 的顺序书写，以提高代码的可读性。**
 
 解释：
 
