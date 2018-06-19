@@ -64,28 +64,14 @@
 HTML作为描述网页结构的超文本标记语言。本文档的目标是使HTML代码风格保持一致，容易被理解和被维护。
 
 
+#### 文件规范
 
+> **文件命名规则**
 
-### 1.1 命名规范说明
+文件名称统一用小写的英文字母和下划线的组合，其中不得包含汉字、空格、数字和特殊字符；命名原则的指导思想一是使得你自己和工作组的每一个成员能够方便的理解每一个文件的意义，二是当我们在文件夹中使用“按名称排例”的命令时，同一种大类的文件能够排列在一起，以便我们查找、修改、替换、计算负载量等等操作。(待沟通)
 
+> **HTML的命名原则**
 
-
-
-#### 一、规范目的
-
-
-概述
-
-为提高团队协作效率, 便于后台人员添加功能及前端后期优化维护, 输出高质量的文档, 特制订此文档. 本规范文档一经确认, 前端开发人员必须按本文档规范进行前台页面开发. 本文档如有不对或者不合适的地方请及时提出, 经讨论决定后可以更改此文档.
-
-
-#### 二、文件规范
-
-##### 2.1  文件命名规则
-
-文件名称统一用小写的英文字母、数字和下划线的组合，其中不得包含汉字、空格和特殊字符；命名原则的指导思想一是使得你自己和工作组的每一个成员能够方便的理解每一个文件的意义，二是当我们在文件夹中使用“按名称排例”的命令时，同一种大类的文件能够排列在一起，以便我们查找、修改、替换、计算负载量等等操作。
-
-###### a.  HTML的命名原则
 ```
 引文件统一使用index.html
 
@@ -98,7 +84,7 @@ HTML作为描述网页结构的超文本标记语言。本文档的目标是使H
 如果栏目名称多而复杂并不好以英文单词命名，则统一使用该栏目名称拼音或拼音的首字母表示；
 每一个目录中应该包含一个缺省的html 文件，文件名统一用index.html；
 ```
-###### b.  图片的命名原则
+> **图片的命名原则**
 ```
 图片的名称分为头尾两部分，用下划线隔开，头部分表示此图片的大类性质
 例如：广告、标志、菜单、按钮等等。
@@ -118,244 +104,43 @@ HTML作为描述网页结构的超文本标记语言。本文档的目标是使H
 鼠标感应效果图片命名规范为”图片名+_+on/off”。
 例如：menu1_on.gif  menu1_off.gif
 ```
-###### c.  javascript的命名原则
-```
-例如：
-    广告条的javascript文件名为 ad.js  
-    弹出窗口的javascript文件名为 pop.js
-```
 
 
-##### 2.2  文件存放位置规范
+> **文件存放位置规范**
 ```
-_Root       
-cn  存放中文HTML文件
-en  存放英文HTML文件
-flash   存放Flash文件
-images  存放图片文件
-imagestudio 存放PSD源文件
-flashstudio 存放flash源文件
-inc 存放include文件
-library 存放DW库文件
-media   存放多媒体文件
-project 存放工程项目资料
-temp    存放客户原始资料
-js  存放JavaScript脚本
-css 存放CSS文件
+images   存放图片文件
+scripts  存放JavaScript脚本
+styles   存放CSS文件
 ```
 
-##### 2.3  CSS 书写规范
-###### 基本原则：
-```
-CSS样式可细分为3类：自定义样式、重新定义HTML样式、链接状态样式。
+> **HTML 书写规范**
 
-1. 样式为设计师自定义的新 CSS 样式，影响被使用本样式的区域，用于完成网页中局部的样式设定。样式名 “.”+“相应样式效果描述的单词或缩写”例：“ .shadow ”
-文字样式样式名“.no”+“字号”+“行距”+“颜色缩写”例：“ .no12 ” 、“ .no12-24 ”
 
-2. 义HTML样式为设计师重新定义已有的HTML标签样式，影响全部的被设定标签样式，用于统一网页中某一标签的样式定义。样式名“HTML标签”例：hr { border: 1px dotted #333333 }
-
-3. 态样式为设计师对链接不同状态设定特殊样式，影响被使用本样式区域中的链接。
-该样式写法有2种： a.nav:link    nav.a:link  第一种只能修饰<a>标签中；第二种可以修饰所有包含有<a>标签的其他标签。
-
-页面内的样式加载必须用链接方式<link rel=”stylesheet” type=”text/css” href=”style/style.css”>
 ```
 
-###### 注意细则：
-```
-1. 协作开发及分工: i会根据各个模块, 同时根据页面相似程序, 事先写好大体框架文件, 分配给前端人员实现内部结构&表现&行为; 共用css文件base.css由i书写, 协作开发过程中, 每个页面请务必都要引入, 此文件包含reset及头部底部样式, 此文件不可随意修改;
+1. 样式表中中文字体名, 请务必转码成unicode码, 以避免编码错误时乱码;
 
-2. class与id的使用: id是唯一的并是父级的, class是可以重复的并是子级的, 所以id仅使用在大的模块上, class可用在重复使用率高及子级中; id原则上都是由我分发框架文件时命名的, 为JavaScript预留钩子的除外;
+2. 背景图片请尽可能使用sprite技术, 减小http请求, 考虑到多人协作开发, sprite按模块制作;
 
-3. 为JavaScript预留钩子的命名, 请以 js_ 起始, 比如: js_hide, js_show;
+3. 使用table标签时(尽量避免使用table标签), 请不要用width/ height/cellspacing/cellpadding等table属性直接定义表现, 应尽可能的利用table自身私有属性分离结构与表现, 如thead,tr,th,td,tbody,tfoot,colgroup,scope; (cellspaing及cellpadding的css控制方法: table{border:0;margin:0;border-collapse:collapse;} table th, table td{padding:0;} , base.css文件中我会初始化表格样式)
 
-4. class与id命名:
-大的框架命名比如header/footer/wrapper/left/right之类的在2中由i统一命名.其他样式名称由 小写英文 & 数字 & _ 来组合命名, 如i_comment, fontred, width200; 避免使用中文拼音, 尽量使用简易的单词组合; 总之, 命名要语义化, 简明化.
+4. 杜绝使用<meta http-equiv=”X-UA-Compatible” content=”IE=7″ /> 兼容ie8;
 
-5. 规避class与id命名(此条重要, 若有不明白请及时与i沟通):
-
-    a, 通过从属写法规避, 示例见d;
-
-    b, 取父级元素id/class命名部分命名, 示例见d;
-
-    c, 重复使用率高的命名, 请以自己代号加下划线起始, 比如i_clear;
-
-    d, a,b两条, 适用于在2中已建好框架的页面,
-       如, 要在2中已建好框架的页面代码
-       <div id=”mainnav”></div>中加入新的div元素,
-
-    按a命名法则:
-        <div id=”mainnav”>
-            <div class=”firstnav”>…</div>
-        </div>,
-
-    样式写法:  #mainnav  .firstnav{…….}
-
-    按b命名法则:
-        <div id=”mainnav”>
-            <div class=”main_firstnav”>…</div>
-        </div>,
-
-    样式写法:  .main_firstnav{…….}
-
-6. css属性书写顺序, 建议遵循
-布局定位属性–>自身属性–>文本属性–>其他属性.
-此条可根据自身习惯书写, 但尽量保证同类属性写在一起.
-
-属性列举:
-
-布局定位属性主要包括:
-    margin、padding、float（包括clear）、
-    position（相应的 top,right,bottom,left）、
-    display、visibility、overflow等；
-
-自身属性主要包括:
-    width & height & background & border;
-
-文本属性主要包括：
-    font、color、text-align、text-decoration、text-indent等；
-
-其他属性包括:
-    list-style(列表样式)、vertical-vlign、
-    cursor、z-index(层叠顺序) 、zoom等.
-
-我所列出的这些属性只是最常用到的, 并不代表全部;
-
-7. 书写代码前, 考虑并提高样式重复使用率;
-
-8. 充分利用html自身属性及样式继承原理减少代码量, 比如:
-
-<ul class=”list”><li>这儿是标题列表<span>2010-09-15</span></ul>
-
-定义ul.list li{position:relative}  ul.list li span{position:absolute; right:0}
-
-即可实现日期居右显示
-
-9. 样式表中中文字体名, 请务必转码成unicode码, 以避免编码错误时乱码;
-
-10. 背景图片请尽可能使用sprite技术, 减小http请求, 考虑到多人协作开发, sprite按模块制作;
-
-11. 使用table标签时(尽量避免使用table标签), 请不要用width/ height/cellspacing/cellpadding等table属性直接定义表现, 应尽可能的利用table自身私有属性分离结构与表现, 如thead,tr,th,td,tbody,tfoot,colgroup,scope; (cellspaing及cellpadding的css控制方法: table{border:0;margin:0;border-collapse:collapse;} table th, table td{padding:0;} , base.css文件中我会初始化表格样式)
-
-12. 杜绝使用<meta http-equiv=”X-UA-Compatible” content=”IE=7″ /> 兼容ie8;
-
-13. 用png图片做图片时, 要求图片格式为png-8格式,若png-8实在影响图片质量或其中有半透明效果, 请为ie6单独定义背景:
+5. 用png图片做图片时, 要求图片格式为png-8格式,若png-8实在影响图片质量或其中有半透明效果, 请为ie6单独定义背景:
 
 background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=crop, src=’img/bg.png’);
 
-14. 避免兼容性属性的使用, 比如text-shadow || css3的相关属性;
 
-15. 减少使用影响性能的属性, 比如position:absolute || float ;
+6. 必须为大区块样式添加注释, 小区块适量注释;
 
-16. 必须为大区块样式添加注释, 小区块适量注释;
-
-17. 代码缩进与格式: 建议单行书写, 可根据自身习惯, 后期优化i会统一处理;
+7. 代码缩进与格式: 建议单行书写, 可根据自身习惯, 后期优化会统一处理;
 
 ```
 
 
-### 1.2 命名规则
 
 
-```
-    头：header    
-    内容：content/container   
-    尾：footer   
-    导航：nav   
-    侧栏：sidebar   
-    栏目：column   
-    页面外围控制整体布局宽度：wrapper    
-    左右中：left right center   
-    登录条：loginbar      
-    标志：logo       
-    广告：banner        
-    页面主体：main         
-    热点：hot         
-    新闻：news      
-    下载：download        
-    子导航：subnav       
-    菜单：menu          
-    子菜单：submenu        
-    搜索：search        
-    友情链接：friendlink        
-    页脚：footer      
-    版权：copyright         
-    滚动：scroll        
-    内容：content         
-    标签页：tab        
-    文章列表：list         
-    提示信息：msg      
-    小技巧：tips         
-    栏目标题：title          
-    加入：joinus          
-    指南：guild           
-    服务：service          
-    注册：regsiter          
-    状态：status        
-    投票：vote     
-    合作伙伴：partner
-```
-
-### 1.3 class的命名:
-
-```
-(1)页面结构
-    容器: container
-    页头：header
-    内容：content/container
-    页面主体：main
-    页尾：footer
-    导航：nav
-    侧栏：sidebar
-    栏目：column
-    页面外围控制整体布局宽度：wrapper
-    左右中：left right center
-
-
-(2)导航
-    导航：nav
-    主导航：mainbav
-    子导航：subnav
-    顶导航：topnav
-    边导航：sidebar
-    左导航：leftsidebar
-    右导航：rightsidebar
-    菜单：menu
-    子菜单：submenu
-    标题: title
-    摘要: summary
-
-
-(3)功能
-    标志：logo
-    广告：banner
-    登陆：login
-    登录条：loginbar
-    注册：regsiter
-    搜索：search
-    功能区：shop
-    标题：title
-    加入：joinus
-    状态：status
-    按钮：btn
-    滚动：scroll
-    标签页：tab
-    文章列表：list
-    提示信息：msg
-    当前的: current
-    小技巧：tips
-    图标: icon
-    注释：note
-    指南：guild
-    服务：service
-    热点：hot
-    新闻：news
-    下载：download
-    投票：vote
-    合作伙伴：partner
-    友情链接：link
-```
-
-### 1.4 注释的写法:
+> **HTML 注释的写法:**
 
 ```
 /* header */
@@ -392,53 +177,6 @@ background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizin
 
 ### 2.2 命名
 
-
-> **[强制] `class` 必须单词全字母小写，单词间以 `_`(下划线) 分隔。**
-
-> **[强制] `class` 必须代表相应模块或部件的内容或功能，不得以样式信息进行命名。**
-
-示例：
-
-```html
-<!-- good -->
-<div class="sidebar"></div>
-
-<!-- bad -->
-<div class="left"></div>
-```
-
-> **[强制] 元素 `id` 必须保证页面唯一。**
-
-解释：
-
-同一个页面中，不同的元素包含相同的 id，不符合 id 的属性含义。并且使用 document.getElementById 时可能导致难以追查的问题。
-
-
-> **[建议] `id` 建议单词全字母小写，单词间以 `_`(下划线) 分隔。同项目必须保持风格一致。**
-
-
-> **[建议] `id`、`class` 命名，在避免冲突并描述清楚的前提下尽可能短。**
-
-示例：
-
-```html
-<!-- good -->
-<div id="nav"></div>
-<!-- bad -->
-<div id="navigation"></div>
-
-<!-- good -->
-<p class="comment"></p>
-<!-- bad -->
-<p class="com"></p>
-
-<!-- good -->
-<span class="author"></span>
-<!-- bad -->
-<span class="red"></span>
-```
-
-> **[强制] 禁止为了 `hook 脚本`，创建无样式信息的 `class`。**
 
 解释：
 
@@ -1068,7 +806,7 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 ## 8 模板中的 HTML
 
 
-> **[建议] 模板代码的缩进优先保证 `HTML` 代码的缩进规则。
+> **[建议] 模板代码的缩进优先保证 `HTML` 代码的缩进规则。**
 
 示例：
 
@@ -1096,7 +834,7 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 {/if}
 ```
 
-> **[建议] 模板代码应以保证 `HTML` 单个标签语法的正确性为基本原则。
+> **[建议] 模板代码应以保证 `HTML` 单个标签语法的正确性为基本原则。**
 
 示例：
 
@@ -1108,7 +846,7 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 <li {if $item.type_id == $current_type} class="focus"{/if}>{ $item.type_name }</li>
 ```
 
-> **[建议] 在循环处理模板数据构造表格时，若要求每行输出固定的个数，建议先将数据分组，之后再循环输出。
+> **[建议] 在循环处理模板数据构造表格时，若要求每行输出固定的个数，建议先将数据分组，之后再循环输出。**
 
 示例：
 

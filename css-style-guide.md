@@ -20,6 +20,8 @@
 
 　　[2.6 属性](#26-%E5%B1%9E%E6%80%A7)
 
+　　[2.7 class与id命名规则](#27-class与id命名规则)
+
 [3 通用](#3-%E9%80%9A%E7%94%A8)
 
 　　[3.1 选择器](#31-%E9%80%89%E6%8B%A9%E5%99%A8)
@@ -291,27 +293,146 @@ article[character='juliet'] {
     margin: 0
 }
 ```
-### 2.7  命名规则
+### 2.7  class与id命名规则
 
-> **类名名称统一用小写的英文字母和下划线的组合，其中不得包含汉字、空格、数字和特殊字符，英文尽量使用贴合功能的名字，禁止出现 .a 和 .a1 这类无意义的名字。**
 
-```css
-/* good */
-.selector_warp {
-    margin: 0;
-}
+> **class与id命名：大的框架命名比如header/footer/wrapper/left/right之类的在2中由i统一命名.其他样式名称统一用小写的英文字母、数字和下划线的组合，其中不得包含汉字、空格和特殊字符，英文尽量使用贴合功能的名字，禁止出现 .a 和 .a1 这类无意义的名字。避免使用中文拼音, 尽量使用简易的单词组合; 总之, 命名要语义化, 简明化。**
 
-/* bad */
-.selectorWarp {
-    margin: 0
-}
-.selectorWarp1 {
-    margin: 0
-}
+> **[强制] `class` 和 `id` 必须单词全字母小写，单词间以 `_`(下划线) 分隔。元素 `id` 必须保证页面唯一。**
+
+> **[强制] `class` 必须代表相应模块或部件的内容或功能，不得以样式信息进行命名，在避免冲突并描述清楚的前提下尽可能短。**
+
+
+
+```
+规避class与id命名(此条重要, 若有不明白请及时与i沟通):
+
+    a, 通过从属写法规避, 示例见d;
+
+    b, 取父级元素id/class命名部分命名, 示例见d;
+
+    c, 重复使用率高的命名, 请以自己代号加下划线起始, 比如i_clear;
+
+    d, a,b两条, 适用于在2中已建好框架的页面,
+       如, 要在2中已建好框架的页面代码
+       <div id=”mainnav”></div>中加入新的div元素,
+
+    按a命名法则:
+        <div id=”mainnav”>
+            <div class=”firstnav”>…</div>
+        </div>,
+
+    样式写法:  #mainnav  .firstnav{…….}
+
+    按b命名法则:
+        <div id=”mainnav”>
+            <div class=”main_firstnav”>…</div>
+        </div>,
+
+    样式写法:  .main_firstnav{…….}
 ```
 
+> **常用命名：**
 
 
+```
+    头：header    
+    内容：content/container   
+    尾：footer   
+    导航：nav   
+    侧栏：sidebar   
+    栏目：column   
+    页面外围控制整体布局宽度：wrapper    
+    左右中：left right center   
+    登录条：loginbar      
+    标志：logo       
+    广告：banner        
+    页面主体：main         
+    热点：hot         
+    新闻：news      
+    下载：download        
+    子导航：subnav       
+    菜单：menu          
+    子菜单：submenu        
+    搜索：search        
+    友情链接：friendlink        
+    页脚：footer      
+    版权：copyright         
+    滚动：scroll        
+    内容：content         
+    标签页：tab        
+    文章列表：list         
+    提示信息：msg      
+    小技巧：tips         
+    栏目标题：title          
+    加入：joinus          
+    指南：guild           
+    服务：service          
+    注册：regsiter          
+    状态：status        
+    投票：vote     
+    合作伙伴：partner
+```
+
+> **class功能划分的命名：**
+
+```
+(1)页面结构
+    容器: container
+    页头：header
+    内容：content/container
+    页面主体：main
+    页尾：footer
+    导航：nav
+    侧栏：sidebar
+    栏目：column
+    页面外围控制整体布局宽度：wrapper
+    左右中：left right center
+
+
+(2)导航
+    导航：nav
+    主导航：mainbav
+    子导航：subnav
+    顶导航：topnav
+    边导航：sidebar
+    左导航：leftsidebar
+    右导航：rightsidebar
+    菜单：menu
+    子菜单：submenu
+    标题: title
+    摘要: summary
+
+
+(3)功能
+    标志：logo
+    广告：banner
+    登陆：login
+    登录条：loginbar
+    注册：regsiter
+    搜索：search
+    功能区：shop
+    标题：title
+    加入：joinus
+    状态：status
+    按钮：btn
+    滚动：scroll
+    标签页：tab
+    文章列表：list
+    提示信息：msg
+    当前的: current
+    小技巧：tips
+    图标: icon
+    注释：note
+    指南：guild
+    服务：service
+    热点：hot
+    新闻：news
+    下载：download
+    投票：vote
+    合作伙伴：partner
+    友情链接：link
+```
 
 
 ## 3 通用
