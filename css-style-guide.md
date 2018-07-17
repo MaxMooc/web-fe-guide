@@ -114,19 +114,7 @@ UTF-8 编码具有更广泛的适应性。BOM 在使用程序或工具处理文�
 }
 ```
 
-### 2.3 空格  (待沟通)
-
-
-
-> **[强制] `选择器` 与 `{` 之间必须包含空格。**
-
-
-示例：
-
-```css
-.selector {
-}
-```
+### 2.3 空格
 
 
 > **[强制] `属性名` 与之后的 `:` 之间不允许包含空格， `:` 与 `属性值` 之间必须包含空格。**
@@ -149,7 +137,7 @@ margin: 0;
 font-family: Arial, sans-serif;
 ```
 
-### 2.4 行长度
+### 2.4 行长度 （不强求）
 
 
 > **[强制] 每行不得超过 `120` 个字符，除非单行不可分割。**
@@ -186,7 +174,8 @@ background-image: -webkit-gradient(
 );
 ```
 
-### 2.5 选择器
+
+### 2.5 选择器（不强求）
 
 
 > **[强制] 当一个 rule 包含多个 selector 时，每个选择器声明必须独占一行。**
@@ -483,27 +472,8 @@ p.danger-message {
 
 
 
-### 3.2 属性缩写  `(待沟通)`
+### 3.2 属性缩写 
 
-
-
-> **[建议] 在可以使用缩写的情况下，尽量使用属性缩写。**
-
-示例：
-
-```css
-/* good */
-.post {
-    font: 12px/1.5 arial, sans-serif;
-}
-
-/* bad */
-.post {
-    font-family: arial, sans-serif;
-    font-size: 12px;
-    line-height: 1.5;
-}
-```
 
 > **[建议] 使用 `border` / `margin` / `padding` 等缩写时，应注意隐含值对实际数值的影响，确实需要设置多个方向的值时才使用缩写。**
 
@@ -586,23 +556,9 @@ article {
 ```
 
 
-### 3.4 清除浮动  `(待沟通)个人建议拒绝使用float`
+### 3.4 float浮动 
 
-
-
-> **[建议] 当元素需要撑起高度以包含内部的浮动元素时，通过对伪类设置 `clear` 或触发 `BFC` 的方式进行 `clearfix`。尽量不使用增加空标签的方式。**
-
-解释：
-
-触发 BFC 的方式很多，常见的有：
-
-* float 非 none
-* position 非 static
-* overflow 非 visible
-
-如希望使用更小副作用的清除浮动方法，参见 [A new micro clearfix hack](http://nicolasgallagher.com/micro-clearfix-hack/) 一文。
-
-另需注意，对已经触发 BFC 的元素不需要再进行 clearfix。
+> **[强制] 拒绝使用float, 请使用flex。**
 
 
 ### 3.5 !important
@@ -990,26 +946,6 @@ h1 {
 }
 ```
 
-### 5.5 行高    `(待沟通)`
-
-
-> **[建议] `line-height` 在定义文本段落时，应使用数值。**
-
-解释：
-
-将 line-height 设置为数值，浏览器会基于当前元素设置的 font-size 进行再次计算。在不同字号的文本段落组合中，能达到较为舒适的行间间隔效果，避免在每个设置了 font-size 都需要设置 line-height。
-
-当 line-height 用于控制垂直居中时，还是应该设置成与容器高度一致。
-
-
-示例：
-
-```css
-.container {
-    line-height: 1.5;
-}
-```
-
 
 
 ## 6 变换与动画
@@ -1069,43 +1005,7 @@ h1 {
 
 
 
-## 7 响应式    `(待沟通)`
-
-
-
-> **[强制] `Media Query` 不得单独编排，必须与相关的规则一起定义。**
-
-示例：
-
-```css
-/* Good */
-/* header styles */
-@media (...) {
-    /* header styles */
-}
-
-/* main styles */
-@media (...) {
-    /* main styles */
-}
-
-/* footer styles */
-@media (...) {
-    /* footer styles */
-}
-
-
-/* Bad */
-/* header styles */
-/* main styles */
-/* footer styles */
-
-@media (...) {
-    /* header styles */
-    /* main styles */
-    /* footer styles */
-}
-```
+## 7 响应式    
 
 > **[强制] `Media Query` 如果有多个逗号分隔的条件时，应将每个条件放在单独一行中。**
 
