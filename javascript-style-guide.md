@@ -144,59 +144,6 @@ a++;
 a = b + c;
 ```
 
-> **[强制] 用作代码块起始的左花括号 `{` 前必须有一个空格。  (待沟通  不加)**
-
-
-示例：
-
-```javascript
-// good
-if (condition) {
-}
-
-while (condition) {
-}
-
-function funcName() {
-}
-
-// bad
-if (condition){
-}
-
-while (condition){
-}
-
-function funcName(){
-}
-```
-
-> **[强制] `if / else / for / while / function / switch / do / try / catch / finally` 关键字后，必须有一个空格。 (待沟通)**
-
-
-示例：
-
-```javascript
-// good
-if (condition) {
-}
-
-while (condition) {
-}
-
-(function () {
-})();
-
-// bad
-if(condition) {
-}
-
-while(condition) {
-}
-
-(function() {
-})();
-```
 
 > **[强制] 在对象创建时，属性中的 `:` 之后必须有空格，`:` 之前不允许有空格。**
 
@@ -364,21 +311,6 @@ foo(
 );
 ```
 
-> **[建议] 不同行为或逻辑的语句集，使用空行隔开，更易阅读。 `(待沟通)`**
-
-示例：
-
-```javascript
-// 仅为按逻辑换行的示例，不代表setStyle的最优实现
-function setStyle(element, property, value) {
-    if (element == null) {
-        return;
-    }
-
-    element.style[property] = value;
-}
-```
-
 > **[建议] 在语句的行长度超过 `120` 时，根据逻辑条件合理缩进。**
 
 示例：
@@ -449,26 +381,6 @@ var array = [
 ];
 ```
 
-> **[强制] 对于 `if...else...`、`try...catch...finally` 等语句，推荐使用在 `}` 号后添加一个换行 的风格，使代码层次结构更清晰，阅读性更好。 (待沟通)**
-
-示例：
-
-```javascript
-if (condition) {
-    // some statements;
-}
-else {
-    // some statements;
-}
-
-try {
-    // some statements;
-}
-catch (ex) {
-    // some statements;
-}
-```
-
 
 
 #### 2.1.4 语句
@@ -476,21 +388,6 @@ catch (ex) {
 
 > **[强制] 不得省略语句结束的分号。**
 
-> **[强制] 在 `if / else / for / do / while` 语句中，即使只有一行，也不得省略块 `{...}`。 (待沟通)**
-
-示例：
-
-```javascript
-// good
-if (condition) {
-    callFunc();
-}
-
-// bad
-if (condition) callFunc();
-if (condition)
-    callFunc();
-```
 
 > **[强制] 函数定义结束不允许添加分号。**
 
@@ -990,17 +887,6 @@ var width = '200px';
 parseInt(width, 10);
 ```
 
-> **[强制] 使用 `parseInt` 时，必须指定进制。 （待沟通）**
-
-示例：
-
-```javascript
-// good
-parseInt(str, 10);
-
-// bad
-parseInt(str);
-```
 
 > **[建议] 转换成 `boolean` 时，使用 `!!`。**
 
