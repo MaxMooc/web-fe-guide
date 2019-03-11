@@ -52,7 +52,6 @@
 
 [7 多媒体](#7-%E5%A4%9A%E5%AA%92%E4%BD%93)
 
-[8 模板中的 HTML](#8-%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%9A%84-html)
 
 
 
@@ -784,78 +783,3 @@ button 元素的默认 type 为 submit，如果被置于 form 元素中，点击
 <object width="100" height="50" data="something.swf">DO NOT SUPPORT THIS TAG</object>
 ```
 
-
-
-
-## 8 模板中的 HTML
-
-
-> **[建议] 模板代码的缩进优先保证 `HTML` 代码的缩进规则。**
-
-示例：
-
-```html
-<!-- good -->
-{if $display == true}
-<div>
-    <ul>
-    {foreach $item_list as $item}
-        <li>{$item.name}<li>
-    {/foreach}
-    </ul>
-</div>
-{/if}
-
-<!-- bad -->
-{if $display == true}
-    <div>
-        <ul>
-    {foreach $item_list as $item}
-        <li>{$item.name}<li>
-    {/foreach}
-        </ul>
-    </div>
-{/if}
-```
-
-> **[建议] 模板代码应以保证 `HTML` 单个标签语法的正确性为基本原则。**
-
-示例：
-
-```html
-<!-- good -->
-<li class="{if $item.type_id == $current_type}focus{/if}">{ $item.type_name }</li>
-
-<!-- bad -->
-<li {if $item.type_id == $current_type} class="focus"{/if}>{ $item.type_name }</li>
-```
-
-> **[建议] 在循环处理模板数据构造表格时，若要求每行输出固定的个数，建议先将数据分组，之后再循环输出。**
-
-示例：
-
-```html
-<!-- good -->
-<table>
-    {foreach $item_list as $item_group}
-    <tr>
-        {foreach $item_group as $item}
-        <td>{ $item.name }</td>
-        {/foreach}
-    <tr>
-    {/foreach}
-</table>
-
-<!-- bad -->
-<table>
-<tr>
-    {foreach $item_list as $item}
-    <td>{ $item.name }</td>
-        {if $item@iteration is div by 5}
-    </tr>
-    <tr>
-        {/if}
-    {/foreach}
-</tr>
-</table>
-```
